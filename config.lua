@@ -15,7 +15,7 @@ expFromPlayersLevelRange = 75
 
 -- Connection Config
 -- NOTE: maxPlayers set to 0 means no limit
-ip = "127.0.0.1"
+ip = "23.236.49.182"
 bindOnlyGlobalAddress = false
 loginProtocolPort = 7171
 gameProtocolPort = 7172
@@ -62,7 +62,7 @@ mysqlPass = "otserver"
 mysqlDatabase = "otserver"
 mysqlPort = 3306
 mysqlSock = ""
-passwordType = "vahash";
+passwordType = "sha1";
 
 -- Misc.
 -- NOTE: classicAttackSpeed set to true makes players constantly attack at regular
