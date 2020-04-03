@@ -62,7 +62,7 @@ mysqlPass = "otserver"
 mysqlDatabase = "otserver"
 mysqlPort = 3306
 mysqlSock = ""
-passwordType = "sha256"
+passwordType = "vahash";
 
 -- Misc.
 -- NOTE: classicAttackSpeed set to true makes players constantly attack at regular
