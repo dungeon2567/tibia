@@ -1,84 +1,56 @@
-
+local config = {
+    [1] = {
+        -- equipment; Soldier Helmet, Wand of Vortex, Brass Armor, Brass Legs, Amulet of Loss, Black Shield, Leather Boots
+        {
+            {2481, 1}, {2190, 1}, {2465, 1}, {2478, 1}, {2173, 1}, {2529, 1},
+            {2643, 1}
+        },
+        -- container; Rope, Light Shovel, 30 Platinum Coins, 100 Brown Mushroom
+        {{8712, 1}, {5710, 1}, {2152, 30}, {2789, 100}}
+    },
+    [2] = {
+        -- equipment; Soldier Helmet, Snakebite Rod, Brass Armor, Brass Legs, Amulet of Loss, Black Shield, Leather Boots
+        {
+            {2481, 1}, {2182, 1}, {2465, 1}, {2478, 1}, {2173, 1}, {2529, 1},
+            {2643, 1}
+        },
+        -- container; Rope, Light Shovel, 30 Platinum Coins, 100 Brown Mushroom
+        {{8712, 1}, {5710, 1}, {2152, 30}, {2789, 100}}
+    },
+    [3] = {
+        -- equipment; Soldier Helmet, Bow, Brass Armor, Brass Legs, Amulet of Loss, 100 Arrow, Leather Boots
+        {
+            {2481, 1}, {2456, 1}, {2465, 1}, {2478, 1}, {2173, 1}, {2544, 100},
+            {2643, 1}
+        },
+        -- container; Rope, Light Shovel, 30 Platinum Coins, 100 Brown Mushroom
+        {{8712, 1}, {5710, 1}, {2152, 30}, {2789, 100}}
+    },
+    [4] = {
+        -- equipment; Soldier Helmet, Steel Axe, Brass Armor, Brass Legs, Amulet of Loss, Black Shield, Leather Boots
+        {
+            {2481, 1}, {8601, 1}, {2465, 1}, {2478, 1}, {2173, 1}, {2529, 1},
+            {2643, 1}
+        },
+        -- container; Rope, Light Shovel, 30 Platinum Coins, 100 Brown Mushroom, Banana Staff, Jagged Sword
+        {{8712, 1}, {5710, 1}, {2152, 30}, {2789, 100}, {3966, 1}, {8602, 1}}
+    }
+}
 
 function onLogin(cid)
-	local lastLogin = getPlayerLastLogin(cid)
-	local config = {
-		voc_items = {
-			{ -- SORC
-				{2190} -- wand of vortex
-			},
-			{ -- DRUID
-				{2182} -- snakebite rod
-			},
-			{ -- PALADIN
-				{2389, 10} -- spear
-			},
-			{ -- KNIGHT
-				{2398} -- mace
-			}
-		},
-		all_items = {
-			{2480}, -- legion helmet
-			{2484}, -- studded armor
-			{2530}, -- cooper shield
-			{2649}, -- leather legs
-			{2643} -- leather boots
-		},
-		extra_items = {
-			{2667, 2}, -- fish
-			{2050}, -- torch
-			{2412} -- katana
-		},
-		knight_weapons = {
-			{2388} -- hatchet
-		}
-	}
-	if not (lastLogin ~= 0) then
-		if getPlayerVocation(cid) < 11 and getPlayerVocation(cid) > 0 then
-			local common = config.voc_items[getPlayerVocation(cid)]
-			if common ~= nil then
-				for _, v in ipairs(common) do
-					doPlayerAddItem(cid, v[1], v[2] or 1)
-				end
-			end
-			
-			local all = config.all_items
-			if all ~= nil then
-				for _, v in ipairs(all) do
-					doPlayerAddItem(cid, v[1], v[2] or 1)
-				end
-			end
-			
-			local extra = config.extra_items
-			local bp = doPlayerAddItem(cid, 1987, 1) -- container
-			if extra ~= nil then
-				for _, v in ipairs(extra) do
-					doAddContainerItem(bp, v[1], v[2] or 1)
-				end
-			end
-			
-			local weapons = config.knight_weapons
-			if weapons ~= nil then
-				for _, w in ipairs(weapons) do
-					if getPlayerVocation(cid) == 4 then
-						doAddContainerItem(bp, w[1], w[2] or 1)
-					end
-				end
-			end
-			
-		elseif getPlayerVocation(cid) == 0 then 
-			if (getPlayerSex(cid) == 0) then
-				doPlayerAddItem(cid, 2651, 1)
-			else
-				doPlayerAddItem(cid, 2650, 1) -- jacket
-			end
-			local club = doCreateItemEx(2382, 1) -- club
-			doPlayerAddItemEx(cid, club, true, CONST_SLOT_LEFT)
-			local bp = doPlayerAddItem(cid, 1987, 1) -- bag
-			doAddContainerItem(bp, 2050, 1) -- torch
-			doAddContainerItem(bp, 2674, 2) -- apples
-		end
-		
-	end
-	return true
+    local player = Player(cid)
+    local targetVocation = config[player:getVocation():getId()]
+    if not targetVocation then return true end
+
+    if player:getLastLoginSaved() == 0 then
+        for i = 1, #targetVocation[1] do
+            player:addItem(targetVocation[1][1], targetVocation[1][2])
+        end
+
+        local backpack = player:addItem(1988)
+        for i = 1, #targetVocation[2] do
+            backpack:addItem(targetVocation[2][1], targetVocation[2][2])
+        end
+    end
+    return true
 end
