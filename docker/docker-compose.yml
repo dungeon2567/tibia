@@ -46,17 +46,5 @@ services:
     depends_on:
       - otdb
 
-  otlogin:
-    build: 
-      context: ./
-      dockerfile: ./Dockerfile.login
-    restart: unless-stopped
-    volumes:
-      - ./data/:/tmp/
-    ports:
-      - "8080:80"
-    depends_on:
-      - otdb
-
 volumes:
   db-volume:
