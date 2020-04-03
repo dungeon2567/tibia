@@ -56,10 +56,10 @@ checkExpiredMarketOffersEachMinutes = 60
 maxMarketOffersAtATimePerPlayer = 100
 
 -- MySQL
-mysqlHost = "127.0.0.1"
-mysqlUser = "forgottenserver"
-mysqlPass = ""
-mysqlDatabase = "forgottenserver"
+mysqlHost = "otdb"
+mysqlUser = "otserver"
+mysqlPass = "otserver"
+mysqlDatabase = "otserver"
 mysqlPort = 3306
 mysqlSock = ""
 

@@ -171,8 +171,3 @@ pip-log.txt
 *~
 .*.swp
 .*.swo
-
-#############
-## TFS / OT
-#############
-config.lua
