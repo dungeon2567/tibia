@@ -14,7 +14,7 @@ services:
     depends_on:
       - otdb
       - otweb
-      - otlogin
+      #- otlogin
 
   otdb:
     container_name: otdb
