@@ -46,7 +46,7 @@ timeBetweenExActions = 1000
 
 -- Map
 -- NOTE: set mapName WITHOUT .otbm at the end
-mapName = "Exysia"
+mapName = "Alunua"
 mapAuthor = "Komic"
 
 -- Market
