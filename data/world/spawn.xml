@@ -2041,6 +2041,12 @@
 	<spawn centerx="371" centery="53" centerz="7" radius="1">
 		<monster name="Zombie" x="1" y="0" z="7" spawntime="60" />
 	</spawn>
+	<spawn centerx="1228" centery="54" centerz="7" radius="1">
+		<monster name="Traning Monk" x="1" y="0" z="7" spawntime="60" direction="2" />
+	</spawn>
+	<spawn centerx="1233" centery="55" centerz="7" radius="1">
+		<monster name="Traning Monk" x="0" y="-1" z="7" spawntime="10" direction="2" />
+	</spawn>
 	<spawn centerx="82" centery="56" centerz="7" radius="1">
 		<monster name="Warlock" x="0" y="0" z="7" spawntime="60" />
 	</spawn>
