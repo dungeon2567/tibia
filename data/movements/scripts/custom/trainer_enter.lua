@@ -71,7 +71,6 @@ end
 
 function onStepIn(creature, item, position, fromPosition)
 	if not creature:isPlayer() then
-		creature:sendTextMessage(MESSAGE_INFO_DESCR, "Not is player")
 		return false
 	end
 
@@ -80,8 +79,6 @@ function onStepIn(creature, item, position, fromPosition)
 		creature:teleportTo(fromPosition, true)
 		return true
 	end
-
-	creature:sendTextMessage(MESSAGE_INFO_DESCR, "Calculating room")
 
 	calculatingRoom(creature.uid, config.first_room_pos, 0, 0)
 
