@@ -38,6 +38,9 @@ function onLogin(player)
 		return true
 	end
 
+	if player:getLastLoginSaved() ~= 0 then
+		return true
+	end
 
 	if (player:getSlotItem(CONST_SLOT_LEFT)) then
 		return true

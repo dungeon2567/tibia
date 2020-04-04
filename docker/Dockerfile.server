@@ -19,7 +19,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 WORKDIR /opt/otserver
 
 COPY src/    ./src/
-COPY data/   ./data/
 COPY cmake/  ./cmake/
 COPY key.pem CMakeLists.txt config.lua ./
 

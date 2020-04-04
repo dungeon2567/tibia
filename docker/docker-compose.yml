@@ -10,7 +10,7 @@ services:
       - "7171:7171"
       - "7172:7172"
     volumes:
-      - ../data:/opt/data
+      - ../data:/opt/otserver/data
     depends_on:
       - otdb
       - otweb
