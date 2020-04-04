@@ -50,13 +50,11 @@ function onLogin(player)
 		player:addItem(targetVocation.items[i][1], targetVocation.items[i][2])
 	end
 
-	local backpack = player:addItem(1987)
+	local backpack = player:addItem(1988)
 	if not backpack then
 		return true
 	end
-
-	backpack:addItem(2175)
-
+	
 	for i = 1, #targetVocation.container do
 		backpack:addItem(targetVocation.container[i][1], targetVocation.container[i][2])
 	end
