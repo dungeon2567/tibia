@@ -38,9 +38,6 @@ function onLogin(player)
 		return true
 	end
 
-	if player:getLastLoginSaved() ~= 0 then
-		return true
-	end
 
 	if (player:getSlotItem(CONST_SLOT_LEFT)) then
 		return true
@@ -50,7 +47,7 @@ function onLogin(player)
 		player:addItem(targetVocation.items[i][1], targetVocation.items[i][2])
 	end
 
-	local backpack = player:addItem(1988)
+	local backpack = player:addItem(1987)
 	if not backpack then
 		return true
 	end
