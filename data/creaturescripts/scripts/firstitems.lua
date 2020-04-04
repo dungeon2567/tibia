@@ -45,7 +45,9 @@ function onLogin(cid)
     if player:getLastLoginSaved() == 0 then
         for i = 1, #targetVocation[1] do
             player:addItem(targetVocation[1][1], targetVocation[1][2])
-        end
+		end
+		
+		local backpack = player:addItem(2841)
 
         local backpack = player:addItem(1988)
         for i = 1, #targetVocation[2] do
